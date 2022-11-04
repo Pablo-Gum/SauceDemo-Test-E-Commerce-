@@ -1,0 +1,29 @@
+package WebPageObject;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
+
+public class LogOut_Page {
+    protected WebDriver driver;
+
+    //constructor
+    public LogOut_Page(WebDriver driver){
+        this.driver = driver;
+        PageFactory.initElements(driver,this);
+        PageFactory.initElements(new AjaxElementLocatorFactory(driver,10),this);
+    }
+
+    @FindBy(xpath = "//*[@id=\"react-burger-menu-btn\"]")
+    public WebElement  dropDownBtn;
+
+    @FindBy(xpath= "//*[@id=\"logout_sidebar_link\"] ")
+    public WebElement logOutBtn;
+
+    // validation
+    @FindBy(xpath ="//*[@id=\"login_credentials\"]" )
+    public WebElement credentials;
+
+}
